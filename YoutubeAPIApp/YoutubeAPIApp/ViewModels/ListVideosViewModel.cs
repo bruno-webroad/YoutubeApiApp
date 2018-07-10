@@ -68,11 +68,11 @@ namespace YoutubeAPIApp.ViewModels
             {               
                 Videos = new ObservableCollection<Item>();
                 var videos = await YoutubeService.ListarVideosYoutube(Search);
-                if (videos.items != null && videos.items.Any())
+                if (videos != null && videos.items != null && videos.items.Any())
                 {
                     Videos = new ObservableCollection<Item>(videos.items);
                     TokenNextPage = videos.nextPageToken;
-                }
+                }                
             }
         }
 
