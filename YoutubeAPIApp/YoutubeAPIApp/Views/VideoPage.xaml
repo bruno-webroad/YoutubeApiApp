@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YoutubeAPIApp.Views.VideoPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5,10">
+                <WebView Source="{Binding Url}" HeightRequest="300"/>
+                <Label Text="{Binding Video.snippet.Title}" FontSize="16"/>
+                <Label Text="{Binding Video.snippet.Description}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

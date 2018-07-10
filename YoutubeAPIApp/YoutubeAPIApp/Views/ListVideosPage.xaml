@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:YoutubeAPIApp.Controls"
+             x:Class="YoutubeAPIApp.Views.ListVideosPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <SearchBar Placeholder="Pesquise seu vídeo aqui" Grid.Column="0" FontSize="12" Text="{Binding Search}"/>
+                    <Button TextColor="White" Text="Buscar" Grid.Column="1" BackgroundColor="Blue" Command="{Binding SearchCommand}" />
+                </Grid>
+                <controls:InfiniteScrollListView ItemsSource="{Binding Videos}" SelectedItem="{Binding Video, Mode=TwoWay}" HasUnevenRows="True" RowHeight="110">
+                    <controls:InfiniteScrollListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding snippet.thumbnails.medium.url}" WidthRequest="100" HeightRequest="100" Aspect="AspectFit" Grid.Column="0"/>
+                                    <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                        <Label Text="{Binding snippet.titleCompact}" FontSize="16" />
+                                        <Label Text="{Binding snippet.descriptionCompact}" FontSize="12" />
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </controls:InfiniteScrollListView.ItemTemplate>
+                </controls:InfiniteScrollListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
