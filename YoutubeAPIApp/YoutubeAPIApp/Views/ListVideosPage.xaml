@@ -11,10 +11,10 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <SearchBar Placeholder="Pesquise seu vídeo aqui" Grid.Column="0" FontSize="12" Text="{Binding Search}"/>
+                    <SearchBar Placeholder="Pesquise seu vídeo aqui" Grid.Column="0" FontSize="12" Text="{Binding Search}" SearchCommand="{Binding SearchCommand}"/>
                     <Button TextColor="White" Text="Buscar" Grid.Column="1" BackgroundColor="Blue" Command="{Binding SearchCommand}" />
                 </Grid>
-                <controls:InfiniteScrollListView ItemsSource="{Binding Videos}" SelectedItem="{Binding Video, Mode=TwoWay}" HasUnevenRows="True" RowHeight="110">
+                <controls:InfiniteScrollListView LoadCommand="{Binding LoadCommand}" ItemsSource="{Binding Videos}" SelectedItem="{Binding Video, Mode=TwoWay}" HasUnevenRows="True" RowHeight="110">
                     <controls:InfiniteScrollListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
